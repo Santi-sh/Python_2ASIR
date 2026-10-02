@@ -1,6 +1,6 @@
 # Iniciación en Python 2ºASIR
 
-<img width="800" height="500" alt="imagen" src="https://github.com/user-attachments/assets/be50474c-8be7-4dcd-b2f3-f2c3bee87d30" />
+<img width="700" height="450" alt="imagen" src="https://github.com/user-attachments/assets/be50474c-8be7-4dcd-b2f3-f2c3bee87d30" />
 
 
 ## Bloque 1 - Introducción
