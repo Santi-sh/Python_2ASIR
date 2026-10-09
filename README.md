@@ -9,7 +9,7 @@ Actividades | Descripción
 ------------ | -------------
 [B1_1](UD1/ud_1_1.py) | Primeros pasos con Python e IntelliJ
 [B1_2](UD1_2/) | Variables, tipos de datos y operadores básicos
-[B1_3](UD1/) | Operadores de comparación y lógicos
+[B1_3](UD1/ud_1_3.py) | Operadores de comparación y lógicos
 [B1_4](UD1/) | Estructuras condicionales (if, elif, else, match-case)
 [B1_5](UD1/) | Bucles: for y while
 [B1_6](UD1/) | Control de bucles (break, continue)
