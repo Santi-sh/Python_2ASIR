@@ -12,6 +12,6 @@ Actividades | Descripción
 [B1_3](UD1_3/ud_1_3.py) | Operadores de comparación y lógicos
 [B1_4](UD1_4/) | Estructuras condicionales (if, elif, else, match-case)
 [B1_5](UD1_5/ud_1_5.py) | Bucles: for y while
-[B1_6](UD1/) | Control de bucles (break, continue)
-[B1_7](UD1/) | Buenas prácticas y documentación
-[B1_8](UD1/) | Depuración en IntelliJ
+[B1_6](UD1_6/ud_1_6.py) | Control de bucles (break, continue)
+[B1_7](UD1_7/ud_1_7.py) | Buenas prácticas y documentación
+[B1_8](UD1_8/ud_1_8.py) | Depuración en IntelliJ
