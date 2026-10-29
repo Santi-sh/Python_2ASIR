@@ -14,7 +14,7 @@ nota_1 = float(input("Introduce la primera nota: "))
 nota_2 = float(input("Introduce la segunda nota: "))
 nota_3 = float(input("Introduce la tercera nota: "))
 
-# 3. Error lógico intencionado (puedes dejarlo comentado para mostrar qué fallaba):
+# 3. Error lógico intencionado (para mostrar qué fallaba):
 # promedio = nota_1 + nota_2 + nota_3 / 3
 
 # 2 y 4. Cálculo correcto del promedio tras corregir el error lógico con el depurador
