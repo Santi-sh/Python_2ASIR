@@ -39,15 +39,10 @@ while opcion != "3":
             # Verificamos que contenga alguna de las extensiones requeridas
             tiene_extension = nuevo_identifer.endswith((".com", ".es", ".net"))
 
-            # Verificamos que contenga obligatoriamente gmail o hotmail
-            tiene_proveedor = "gmail" in nuevo_identifer or "hotmail" in nuevo_identifer
-
             if len(nuevo_identifer) < 3:
                 print("Error ❌. El identificador debe tener al menos 3 caracteres.")
             elif nuevo_identifer.count("@") != 1:
                 print("Error ❌. El identificador debe contener exactamente un '@'.")
-            elif not tiene_proveedor:
-                print("Error ❌. El correo debe ser obligatoriamente de Gmail o Hotmail.")
             elif not tiene_extension:
                 print("Error ❌. Debe contener alguna de las extensiones: .com, .es, .net.")
             elif tiene_simbolo_prohibido:
