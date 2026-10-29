@@ -40,16 +40,16 @@ while opcion != "3":
             tiene_extension = nuevo_identifer.endswith((".com", ".es", ".net"))
 
             if len(nuevo_identifer) < 3:
-                print("Error ❌. El identificador debe tener al menos 3 caracteres.")
+                print("Error. El identificador debe tener al menos 3 caracteres.")
             elif nuevo_identifer.count("@") != 1:
-                print("Error ❌. El identificador debe contener exactamente un '@'.")
+                print("Error. El identificador debe contener exactamente un '@'.")
             elif not tiene_extension:
-                print("Error ❌. Debe contener alguna de las extensiones: .com, .es, .net.")
+                print("Error. Debe contener alguna de las extensiones: .com, .es, .net.")
             elif tiene_simbolo_prohibido:
-                print("Error ❌. El identificador no debe contener símbolos especiales.")
+                print("Error. El identificador no debe contener símbolos especiales.")
             else:
                 email_valido = True
-                print("Identificador válido ✅")
+                print("Identificador válido")
 
         # Validación de la contraseña segura
         password_valida = False
@@ -68,16 +68,16 @@ while opcion != "3":
             tiene_simbolo = any(c in simbolos_especiales for c in nueva_password)
 
             if not (tiene_ocho_caracteres and tiene_mayuscula and tiene_numero and tiene_simbolo):
-                print("Contraseña insegura ❌. Debe tener al menos 8 caracteres, una mayúscula, un número y un símbolo.")
+                print("Contraseña insegura. Debe tener al menos 8 caracteres, una mayúscula, un número y un símbolo.")
             else:
                 password_valida = True
-                print("Contraseña válida ✅")
+                print("Contraseña válida")
 
         # Almacenar los datos en las variables del sistema
         identifer = nuevo_identifer
         password = nueva_password
         usuario_registrado = True
-        print("Usuario registrado con éxito ✅")
+        print("Usuario registrado con éxito")
 
     # ---------------------------------------------------------
     # OPCIÓN 2: INICIO DE SESIÓN
@@ -94,7 +94,7 @@ while opcion != "3":
 
         # Verificar si el usuario (email) existe en el sistema
         if usuario_ingresado != identifer:
-            print("Acceso denegado ⛔. El usuario no existe.")
+            print("Acceso denegado. El usuario no existe.")
         else:
             # Control de intentos para la contraseña (máximo 3)
             intentos_maximos = 3
@@ -105,15 +105,15 @@ while opcion != "3":
                 contrasena_ingresada = input("Introduce tu contraseña: ")
 
                 if contrasena_ingresada == password:
-                    print(f"Acceso concedido ✅. Bienvenida, {identifer.split('@')[0]}.")
+                    print(f"Acceso concedido. Bienvenida, {identifer.split('@')[0]}.")
                     acceso_concedido = True
                 else:
                     intentos_actuales += 1
                     if intentos_actuales < intentos_maximos:
-                        print(f"Acceso denegado ⛔. Intento {intentos_actuales}/3")
+                        print(f"Acceso denegado. Intento {intentos_actuales}/3")
                     else:
-                        print(f"Acceso denegado ⛔. Intento {intentos_actuales}/3")
-                        print("Demasiados intentos fallidos 🚫. Regresando al menú principal.")
+                        print(f"Acceso denegado. Intento {intentos_actuales}/3")
+                        print("Demasiados intentos fallidos. Regresando al menú principal.")
 
     # ---------------------------------------------------------
     # OPCIÓN 3: SALIR
@@ -125,4 +125,4 @@ while opcion != "3":
     # OPCIÓN NO VÁLIDA
     # ---------------------------------------------------------
     else:
-        print("\nOpción no válida ❌. Por favor, elige una opción entre 1 y 3.")
+        print("\nOpción no válida. Por favor, elige una opción entre 1 y 3.")
