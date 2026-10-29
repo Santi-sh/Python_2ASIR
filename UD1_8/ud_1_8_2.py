@@ -1,15 +1,16 @@
 # 📝 ACTIVIDAD FINAL BLOQUE 01 - b1_10_login.py
 
-
-# Variables globales para almacenar el usuario registrado (simulación básica)
+# Variables globales para almacenar el usuario registrado
 identifer = ""
 password = ""
 usuario_registrado = False
 
-# Bucle principal para mantener el menú activo hasta que el usuario decida salir
+# Bucle principal para mantener el menú activo hasta que se elija salir
 opcion = ""
 while opcion != "3":
-    print("\n--- MENÚ PRINCIPAL ---")
+    print("\n==============================")
+    print("         MENÚ PRINCIPAL       ")
+    print("==============================")
     print("[1]. Registrarse")
     print("[2]. Iniciar sesión")
     print("[3]. Salir")
@@ -22,62 +23,95 @@ while opcion != "3":
     if opcion == "1":
         print("\n--- REGISTRO DE NUEVO USUARIO ---")
 
-        # Validación del identificador (correo electrónico)
+        # Validación paso a paso del correo (identifer)
         email_valido = False
         while not email_valido:
             nuevo_identifer = input("Introduce un nombre de usuario (email): ")
 
-            # Comprobar reglas del identificador:
-            # - Mínimo 3 caracteres
-            # - Contener '@'
-            # - Contener extensiones .com, .es o .net
-            # - No contener símbolos especiales prohibidos (!@#$%&*?, etc.)
-            simbolos_prohibidos = ["!", "@", "#", "$", "%", "&", "*", "?", ",", " "]
-            tiene_simbolo_prohibido = any(
-                simbolo in nuevo_identifer for simbolo in simbolos_prohibidos if simbolo != "@")
-
-            # Verificamos que contenga alguna de las extensiones requeridas
-            tiene_extension = nuevo_identifer.endswith((".com", ".es", ".net"))
-
+            # 1. Comprobar longitud mínima (al menos 3 caracteres)
             if len(nuevo_identifer) < 3:
                 print("Error. El identificador debe tener al menos 3 caracteres.")
-            elif nuevo_identifer.count("@") != 1:
-                print("Error. El identificador debe contener exactamente un '@'.")
-            elif not tiene_extension:
-                print("Error. Debe contener alguna de las extensiones: .com, .es, .net.")
-            elif tiene_simbolo_prohibido:
-                print("Error. El identificador no debe contener símbolos especiales.")
-            else:
-                email_valido = True
-                print("Identificador válido")
+                continue
 
-        # Validación de la contraseña segura
+            # 2. Comprobar que contenga exactamente una arroba
+            if nuevo_identifer.count("@") != 1:
+                print("Error. El identificador debe contener exactamente un '@'.")
+                continue
+
+            # 3. Comprobar que termine en una extensión válida
+            if not nuevo_identifer.endswith((".com", ".es", ".net")):
+                print("Error. Debe terminar con .com, .es o .net.")
+                continue
+
+            # 4. Comprobar símbolos prohibidos (bucle tradicional fácil de leer)
+            simbolos_prohibidos = ["!", "#", "$", "%", "&", "*", "?", ",", " "]
+            tiene_simbolo_prohibido = False
+            for simbolo in simbolos_prohibidos:
+                if simbolo in nuevo_identifer:
+                    tiene_simbolo_prohibido = True
+                    break # Salimos del bucle en cuanto encontramos un símbolo prohibido
+
+            if tiene_simbolo_prohibido:
+                print("Error. El identificador no debe contener símbolos especiales.")
+                continue
+
+            # Si pasa todas las comprobaciones, el correo es válido
+            email_valido = True
+            print("Identificador válido")
+
+        # Validación paso a paso de la contraseña
         password_valida = False
         while not password_valida:
             nueva_password = input("Introduce una contraseña: ")
 
-            # Comprobar reglas de la contraseña:
-            # - Mínimo 8 caracteres
-            # - Al menos una mayúscula
-            # - Al menos un número
-            # - Al menos un símbolo especial (!@#$%&*?, etc.)
-            tiene_ocho_caracteres = len(nueva_password) >= 8
-            tiene_mayuscula = any(c.isupper() for c in nueva_password)
-            tiene_numero = any(c.isdigit() for c in nueva_password)
+            # 1. Comprobar longitud mínima (8 caracteres)
+            if len(nueva_password) < 8:
+                print("Contraseña insegura. Debe tener al menos 8 caracteres.")
+                continue
+
+            # 2. Comprobar si tiene al menos una mayúscula
+            tiene_mayuscula = False
+            for caracter in nueva_password:
+                if caracter.isupper():
+                    tiene_mayuscula = True
+                    break
+
+            if not tiene_mayuscula:
+                print("Contraseña insegura. Debe contener al menos una letra mayúscula.")
+                continue
+
+            # 3. Comprobar si tiene al menos un número
+            tiene_numero = False
+            for caracter in nueva_password:
+                if caracter.isdigit():
+                    tiene_numero = True
+                    break
+
+            if not tiene_numero:
+                print("Contraseña insegura. Debe contener al menos un número.")
+                continue
+
+            # 4. Comprobar si tiene al menos un símbolo especial
             simbolos_especiales = "._!@#$%&*?,"
-            tiene_simbolo = any(c in simbolos_especiales for c in nueva_password)
+            tiene_simbolo = False
+            for caracter in nueva_password:
+                if caracter in simbolos_especiales:
+                    tiene_simbolo = True
+                    break
 
-            if not (tiene_ocho_caracteres and tiene_mayuscula and tiene_numero and tiene_simbolo):
-                print("Contraseña insegura. Debe tener al menos 8 caracteres, una mayúscula, un número y un símbolo.")
-            else:
-                password_valida = True
-                print("Contraseña válida")
+            if not tiene_simbolo:
+                print("Contraseña insegura. Debe contener al menos un símbolo especial.")
+                continue
 
-        # Almacenar los datos en las variables del sistema
+            # Si pasa todas las comprobaciones, la contraseña es válida
+            password_valida = True
+            print("Contraseña válida")
+
+        # Guardar los datos en las variables del sistema
         identifer = nuevo_identifer
         password = nueva_password
         usuario_registrado = True
-        print("Usuario registrado con éxito")
+        print("¡Usuario registrado con éxito! 🎉")
 
     # ---------------------------------------------------------
     # OPCIÓN 2: INICIO DE SESIÓN
@@ -85,14 +119,14 @@ while opcion != "3":
     elif opcion == "2":
         print("\n--- INICIO DE SESIÓN ---")
 
-        # Comprobar si hay algún usuario registrado previamente
+        # Comprobar si hay un usuario registrado previamente
         if not usuario_registrado:
-            print("No hay ningún usuario registrado en el sistema. Regístrate primero (opción 1).")
+            print("No hay ningún usuario registrado. Regístrate primero (opción 1).")
             continue
 
         usuario_ingresado = input("Introduce tu usuario: ")
 
-        # Verificar si el usuario (email) existe en el sistema
+        # Verificar si el usuario introducido coincide
         if usuario_ingresado != identifer:
             print("Acceso denegado. El usuario no existe.")
         else:
@@ -105,7 +139,9 @@ while opcion != "3":
                 contrasena_ingresada = input("Introduce tu contraseña: ")
 
                 if contrasena_ingresada == password:
-                    print(f"Acceso concedido. Bienvenida, {identifer.split('@')[0]}.")
+                    # Extraer el nombre antes de la arroba para saludar
+                    nombre_usuario = identifer.split("@")[0]
+                    print(f"Acceso concedido. Bienvenida, {nombre_usuario}.")
                     acceso_concedido = True
                 else:
                     intentos_actuales += 1
@@ -113,13 +149,13 @@ while opcion != "3":
                         print(f"Acceso denegado. Intento {intentos_actuales}/3")
                     else:
                         print(f"Acceso denegado. Intento {intentos_actuales}/3")
-                        print("Demasiados intentos fallidos. Regresando al menú principal.")
+                        print("Demasiados intentos fallidos 🚫. Regresando al menú principal.")
 
     # ---------------------------------------------------------
     # OPCIÓN 3: SALIR
     # ---------------------------------------------------------
     elif opcion == "3":
-        print("\nSaliendo del programa. ¡Hasta pronto!")
+        print("\nSaliendo del programa. ¡Hasta pronto! 👋")
 
     # ---------------------------------------------------------
     # OPCIÓN NO VÁLIDA
