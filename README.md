@@ -14,4 +14,4 @@ Actividades | Descripción
 [B1_5](UD1_5/ud_1_5.py) | Bucles: for y while
 [B1_6](UD1_6/ud_1_6.py) | Control de bucles (break, continue)
 [B1_7](UD1_7/ud_1_7.py) | Buenas prácticas y documentación
-[B1_8](UD1_8/ud_1_8.py) | Depuración en IntelliJ
+[B1_8](UD1_8/) | Depuración en IntelliJ
