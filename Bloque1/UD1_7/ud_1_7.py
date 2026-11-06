@@ -25,11 +25,10 @@
 #5 x 10 = 50
 
 
-"""
-Programa que solicita un número por teclado y
-muestra por pantalla su tabla de multiplicar del 1 al 10.
 
-"""
+# Programa que solicita un número por teclado y
+# muestra por pantalla su tabla de multiplicar del 1 al 10.
+
 
 # Pedir un número entero por teclado al usuario y convertirlo a entero
 numero_introducido = int(input("Introduce un número: "))
