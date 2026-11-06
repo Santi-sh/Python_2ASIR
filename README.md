@@ -25,7 +25,7 @@ Actividades | Descripción
 [B2_1](Bloque2/UD2/ud_2_1.py) | Funciones: definición
 [B2_2](Bloque2/UD2_2/ud_2_2.py) | Funciones con parámetros
 [B2_3](Bloque2/UD2_3/ud_1_3.py) | Funciones con valores de retorno
-[B2_4](Bloque2/UD2_4/) | Funciones y ámbito (scope de variables)
+[B2_4](Bloque2/UD2_4/ud_2_4.py) | Funciones y ámbito (scope de variables)
 [B2_5](Bloque2/UD2_5/ud_1_5.py) | Listas
 [B2_6](Bloque2/UD2_6/ud_1_6.py) | Tuplas
 [B2_7](Bloque2/UD2_7/ud_1_7.py) | Diccionarios
