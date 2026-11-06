@@ -17,8 +17,10 @@
 #Pedro
 #Lucía
 
+# definimos la lista con 6 nombres
 lista = ["Ana", "Pedro", "Alba", "Lucía", "Carlos", "David"]
 
+# hacemo el bucle for y añadimos el nombre.starswitch para añadir el filtro para los nombres que empiecen por A y a 
 for nombre in lista:
     if nombre.startswith(("A", "a")):
         continue
